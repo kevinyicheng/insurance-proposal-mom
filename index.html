@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>媽媽｜保障規劃建議書</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/tabler-icons.min.css">
+<style>
+:root{
+  --bg-primary:#ffffff;--bg-secondary:#f7f6f3;--bg-cream:#ECE7D8;
+  --text-primary:#1f1e1c;--text-secondary:#56544f;--text-tertiary:#8a8780;
+  --border-secondary:#cbc9c1;--border-tertiary:#e6e4dd;
+  --radius-md:8px;--radius-lg:12px;
+  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-sans);background:var(--bg-primary);color:var(--text-primary);-webkit-font-smoothing:antialiased;}
+.wrap{max-width:820px;margin:0 auto;padding:2rem 1.5rem 3rem;font-size:15px;}
+@media(min-width:600px){.wrap{font-size:16px;}}
+@media(min-width:1024px){.wrap{font-size:17px;}}
+
+.header{margin-bottom:1.25rem;}
+.header-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+.doc-label{font-size:0.71em;color:var(--text-tertiary);margin-bottom:4px;}
+.client-name{font-size:1.47em;font-weight:500;color:var(--text-primary);}
+.hdate{font-size:0.76em;color:var(--text-tertiary);margin-top:4px;text-align:right;}
+.header-divider{margin-top:12px;height:1px;background:var(--border-tertiary);}
+
+.premium-section{margin:1.25rem 0 1.75rem;border:1px solid var(--border-tertiary);border-radius:var(--radius-lg);padding:14px 16px;background:var(--bg-cream);}
+.premium-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;}
+.premium-title{font-size:0.71em;font-weight:500;letter-spacing:0.06em;color:#6b6759;}
+.premium-total-inline{display:flex;align-items:baseline;gap:6px;}
+.premium-total-label{font-size:0.76em;color:#56544f;}
+.premium-total-amt{font-size:1.06em;font-weight:500;color:var(--text-primary);}
+.pgroup{margin-bottom:10px;}
+.pgroup:last-of-type{margin-bottom:0;}
+.pgroup-label{font-size:0.65em;font-weight:500;letter-spacing:0.05em;padding:2px 8px;border-radius:4px;display:inline-block;margin-bottom:5px;}
+.pg-blue .pgroup-label{background:rgba(55,138,221,0.18);color:#185FA5;}
+.pg-purple .pgroup-label{background:rgba(127,119,221,0.18);color:#3C3489;}
+.pg-pink .pgroup-label{background:rgba(212,83,126,0.18);color:#993556;}
+.pg-green .pgroup-label{background:rgba(99,153,34,0.18);color:#3B6D11;}
+.premium-item{border-radius:7px;margin-bottom:4px;overflow:hidden;background:var(--bg-primary);border:1px solid var(--border-tertiary);}
+.premium-item summary{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer;list-style:none;}
+.premium-item summary::-webkit-details-marker{display:none;}
+.premium-name{font-size:0.78em;color:var(--text-primary);flex:1;}
+.premium-tag{font-size:0.65em;color:var(--text-tertiary);margin-left:6px;}
+.premium-amt{font-size:0.78em;font-weight:500;color:var(--text-primary);}
+.chev{font-size:0.8em;color:var(--text-tertiary);transition:transform 0.2s;display:flex;}
+.premium-item[open] .chev{transform:rotate(180deg);}
+.premium-detail{padding:8px 12px 10px 12px;display:flex;flex-direction:column;gap:4px;border-top:1px solid var(--border-tertiary);margin-top:2px;}
+.d-row{display:flex;align-items:baseline;gap:8px;}
+.d-label{font-size:0.72em;color:var(--text-tertiary);white-space:nowrap;min-width:6em;}
+.d-val{font-size:0.74em;color:var(--text-secondary);line-height:1.5;}
+.premium-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:0.65em;color:#6b6759;}
+.legend-dot{width:9px;height:9px;border-radius:2px;}
+.ld-purple{background:rgba(127,119,221,0.5);}
+.ld-pink{background:rgba(212,83,126,0.5);}
+.ld-green{background:rgba(99,153,34,0.5);}
+.ld-blue{background:rgba(55,138,221,0.5);}
+.premium-sub{font-size:0.65em;color:#6b6759;margin-top:8px;}
+
+.timeline{position:relative;padding-left:30px;}
+.timeline::before{content:'';position:absolute;left:10px;top:6px;bottom:6px;width:1px;background:var(--border-secondary);}
+.section{margin-bottom:2.2rem;}
+.section:last-child{margin-bottom:0;}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;position:relative;}
+.node{position:absolute;left:-30px;width:20px;height:20px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;background:var(--bg-primary);}
+.node i{font-size:10px;}
+.branch-wrap{position:relative;padding-left:22px;display:flex;flex-direction:column;gap:10px;}
+.branch-wrap::before{content:'';position:absolute;left:0;top:12px;bottom:12px;width:1px;background:var(--border-tertiary);}
+.branch-card{position:relative;}
+.branch-card::before{content:'';position:absolute;left:-22px;top:50%;width:18px;height:1px;background:var(--border-tertiary);}
+.product-card{border:1px solid var(--border-tertiary);border-radius:var(--radius-lg);padding:14px 16px;background:var(--bg-primary);}
+.product-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px;}
+.product-name{font-size:0.94em;font-weight:500;color:var(--text-primary);}
+.product-badge{font-size:0.71em;padding:3px 9px;border-radius:4px;white-space:nowrap;flex-shrink:0;}
+.product-headline{font-size:0.82em;color:var(--text-secondary);margin-bottom:10px;line-height:1.6;}
+.benefits{display:flex;flex-direction:column;gap:6px;}
+.benefit-row{display:flex;align-items:baseline;gap:10px;}
+.benefit-label{font-size:0.76em;color:var(--text-tertiary);white-space:nowrap;min-width:6.5em;}
+.benefit-val{font-size:0.82em;color:var(--text-primary);line-height:1.55;}
+.hl{font-weight:500;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:2px;color:var(--text-primary);}
+.hl-y{background:#fff176;border-radius:2px;padding:0 2px;font-weight:600;color:#333;}
+.sec-before .node{border-color:#7F77DD;color:#7F77DD;}
+.sec-before .phase-tag{border-color:#CECBF6;color:#3C3489;background:#EEEDFE;}
+.sec-before .product-badge{background:#EEEDFE;color:#3C3489;}
+.sec-mid .node{border-color:#E24B4A;color:#E24B4A;}
+.sec-mid .phase-tag{border-color:#F7C1C1;color:#A32D2D;background:#FCEBEB;}
+.sec-mid .product-badge{background:#FCEBEB;color:#A32D2D;}
+.sec-acc .node{border-color:#639922;color:#639922;}
+.sec-acc .phase-tag{border-color:#C0DD97;color:#3B6D11;background:#EAF3DE;}
+.sec-acc .product-badge{background:#EAF3DE;color:#3B6D11;}
+.sec-life .node{border-color:#378ADD;color:#378ADD;}
+.sec-life .phase-tag{border-color:#B5D4F4;color:#185FA5;background:#E6F1FB;}
+.sec-life .product-badge{background:#E6F1FB;color:#185FA5;}
+.phase-tag{font-size:0.71em;font-weight:500;letter-spacing:0.06em;padding:4px 10px;border-radius:4px;border:1px solid;white-space:nowrap;}
+.phase-title{font-size:0.76em;color:var(--text-tertiary);line-height:1.5;}
+
+.summary-section{margin-top:1.75rem;border:1px solid var(--border-secondary);border-radius:var(--radius-lg);padding:16px 18px;background:var(--bg-cream);}
+.summary-title{font-size:0.88em;font-weight:500;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;gap:7px;}
+.summary-title i{color:var(--text-secondary);}
+.summary-list{display:flex;flex-direction:column;gap:8px;}
+.summary-item{display:flex;align-items:baseline;gap:10px;padding:7px 12px;border-radius:8px;background:var(--bg-primary);border:1px solid var(--border-tertiary);}
+.summary-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;position:relative;top:1px;}
+.summary-text{font-size:0.85em;color:var(--text-secondary);flex:1;line-height:1.5;}
+.summary-amt{font-size:0.92em;font-weight:500;color:var(--text-primary);white-space:nowrap;}
+
+.print-bar{display:flex;justify-content:flex-end;margin-top:1.5rem;}
+.print-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;font-size:0.82em;border:1px solid var(--border-secondary);border-radius:var(--radius-md);background:transparent;color:var(--text-primary);cursor:pointer;}
+.print-btn:hover{background:var(--bg-secondary);}
+.footer{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border-tertiary);}
+.footer-note{font-size:0.71em;color:var(--text-tertiary);line-height:1.7;}
+
+/* 50年保費試算表 */
+.cost-section{margin-top:1.75rem;border:1px solid var(--border-secondary);border-radius:var(--radius-lg);padding:16px 18px;background:var(--bg-cream);}
+.cost-header{margin-bottom:14px;}
+.cost-title{font-size:0.88em;font-weight:500;color:var(--text-primary);display:flex;align-items:center;gap:7px;margin-bottom:4px;}
+.cost-title i{color:var(--text-secondary);}
+.cost-subtitle{font-size:0.72em;color:var(--text-tertiary);line-height:1.6;}
+.cost-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.cost-table{width:100%;border-collapse:collapse;font-size:0.72em;}
+.cost-table thead tr{background:#ddd8c9;border-bottom:2px solid #c8c0ad;}
+.cost-table th{padding:6px 8px;text-align:right;font-weight:600;color:var(--text-primary);white-space:nowrap;}
+.cost-table th:first-child{text-align:center;}
+.cost-table td{padding:5px 8px;text-align:right;color:var(--text-primary);border-bottom:1px solid #e4dfd3;white-space:nowrap;}
+.cost-table td:first-child{text-align:center;font-weight:600;color:var(--text-secondary);}
+.cost-table tbody tr:hover{background:#e8e2d6;}
+.cost-table .age-milestone td:first-child{color:#7F77DD;font-weight:700;}
+.cost-table .age-milestone{background:#ede8de;}
+.cost-table th.col-total,.cost-table td.col-total{border-right:2px solid #c8c0ad;padding-right:12px;}
+.cost-table th:nth-child(3),.cost-table td:nth-child(3){padding-left:12px;}
+.col-total{font-weight:700;color:#2a6496 !important;}
+.col-cum{color:#5a5a5a !important;}
+.no-prem{color:#bbb !important;font-weight:400 !important;}
+.cost-foot td{background:#ddd8c9;font-weight:700;padding:7px 8px;border-top:2px solid #c8c0ad;}
+.cost-note{font-size:0.68em;color:var(--text-tertiary);line-height:1.6;margin-top:10px;}
+
+/* 醫療雙十字 — 7 列 grid 版本 */
+/* 尺寸：col1 badge 76 | col2 line 85 | col3 arrow 10 | col4 core 88 | col5 arrow 10 | col6 line 85 | col7 badge 76 → 總寬 430 */
+.cross-section{margin-top:1.75rem;border:1px solid var(--border-secondary);border-radius:var(--radius-lg);padding:24px 20px 18px;background:var(--bg-cream);overflow:visible;}
+.cross-title{font-size:0.88em;font-weight:500;color:var(--text-primary);display:flex;align-items:center;gap:7px;margin-bottom:20px;}
+.cross-title i{color:var(--text-secondary);}
+.cross-diagram{
+  display:grid;
+  grid-template-columns:76px 85px 10px 88px 10px 85px 76px;
+  grid-template-rows:auto auto auto auto auto;
+  justify-content:center;
+  margin:0 auto;
+  width:fit-content;
+  row-gap:0;
+  column-gap:0;
+}
+/* 所有欄位元素都以 col1/col7 中心為軸對齊 */
+.cd-top-l{grid-column:1;grid-row:1;justify-self:center;padding-bottom:12px;}
+.cd-top-r{grid-column:7;grid-row:1;justify-self:center;padding-bottom:12px;}
+.cd-arr-up-l{grid-column:1;grid-row:2;justify-self:center;display:flex;flex-direction:column;align-items:center;}
+.cd-arr-up-r{grid-column:7;grid-row:2;justify-self:center;display:flex;flex-direction:column;align-items:center;}
+.cd-mid-l{grid-column:1 / 4;grid-row:3;display:flex;align-items:center;justify-content:flex-start;}
+.cd-core{grid-column:4;grid-row:3;display:flex;align-items:center;justify-content:center;}
+.cd-mid-r{grid-column:5 / 8;grid-row:3;display:flex;align-items:center;justify-content:flex-end;}
+.cd-arr-dn-l{grid-column:1;grid-row:4;justify-self:center;display:flex;flex-direction:column;align-items:center;}
+.cd-arr-dn-r{grid-column:7;grid-row:4;justify-self:center;display:flex;flex-direction:column;align-items:center;}
+.cd-bot-l{grid-column:1;grid-row:5;justify-self:center;padding-top:12px;}
+.cd-bot-r{grid-column:7;grid-row:5;justify-self:center;padding-top:12px;}
+/* 水平線（固定寬度 85px）+ 箭頭三角 */
+.cross-h-line-l{width:85px;height:2px;background:linear-gradient(to left,#c8c0ad,#d4537e);flex-shrink:0;}
+.cross-h-line-r{width:85px;height:2px;background:linear-gradient(to right,#c8c0ad,#5a9e3a);flex-shrink:0;}
+.cross-arr-l{width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-right:8px solid #d4537e;flex-shrink:0;}
+.cross-arr-r{width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid #5a9e3a;flex-shrink:0;}
+/* 中心壽險圓 */
+.cross-core-circle{width:88px;height:88px;border-radius:50%;background:#ECE7D8;border:2px solid #c8c0ad;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px;flex-shrink:0;box-shadow:0 1px 3px rgba(0,0,0,0.04);}
+.cross-core-label{font-size:0.62em;font-weight:600;color:#56544f;line-height:1.3;}
+.cross-core-amt{font-size:0.72em;font-weight:700;color:#1f1e1c;margin-top:2px;}
+/* 側邊節點圓 */
+.cross-node-circle{width:76px;height:76px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px;flex-shrink:0;}
+.cross-node-green{background:rgba(90,158,58,0.13);border:2px solid rgba(90,158,58,0.45);}
+.cross-node-pink{background:rgba(212,83,126,0.12);border:2px solid rgba(212,83,126,0.40);}
+.cross-node-label{font-size:0.70em;font-weight:700;line-height:1.25;}
+.cross-node-green .cross-node-label{color:#3a7a10;}
+.cross-node-pink .cross-node-label{color:#a0304e;}
+.cross-node-sub{font-size:0.56em;color:var(--text-tertiary);margin-top:2px;}
+/* 垂直連接線 + 上下三角 */
+.cross-v-line{width:2px;background:#c8c0ad;margin:0 auto;}
+.cross-arr-u::before{content:'';display:block;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:7px solid #aaa;margin:0 auto;}
+.cross-arr-d::after{content:'';display:block;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid #aaa;margin:0 auto;}
+/* 保障卡片 — 統一樣式 */
+.cross-card{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:8px;padding:11px 13px;font-size:0.72em;line-height:1.55;}
+.cross-card-title{font-weight:600;font-size:0.92em;margin-bottom:7px;letter-spacing:0.03em;text-align:center;padding-bottom:5px;border-bottom:1px solid var(--border-tertiary);}
+.cross-card-row{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:3px 0;}
+.cross-card-row + .cross-card-row{border-top:1px dashed var(--border-tertiary);}
+.cross-card-name{color:var(--text-secondary);flex:1;}
+.cross-card-val{font-weight:600;color:var(--text-primary);white-space:nowrap;}
+.cross-card-val.green{color:#3a7a10;}
+.cross-card-val.pink{color:#a0304e;}
+.cross-card-val.purple{color:#6a4a9e;}
+/* 住院保障大卡 — 內含「定額給付｜實支實付」兩欄 */
+.cross-bigcard{width:380px;background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:10px;padding:13px 16px 12px;font-size:0.72em;line-height:1.55;box-shadow:0 1px 3px rgba(0,0,0,0.03);}
+.cross-bigcard-title{font-weight:600;font-size:0.95em;margin-bottom:10px;letter-spacing:0.04em;text-align:center;padding-bottom:6px;border-bottom:1px solid var(--border-tertiary);color:#a0304e;}
+.cross-bigcard-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;}
+.cross-bigcard-col{display:flex;flex-direction:column;}
+.cross-bigcard-col + .cross-bigcard-col{border-left:1px dashed var(--border-tertiary);padding-left:14px;}
+.cross-subtitle{font-weight:600;font-size:0.9em;color:#a0304e;margin-bottom:5px;padding-bottom:3px;}
+/* 下方卡片／右上小卡 的寬度 */
+.cross-smallcard-top{width:200px;}
+.cross-smallcard-bot{width:220px;}
+.cross-note{font-size:0.68em;color:var(--text-tertiary);line-height:1.6;margin-top:14px;}
+
+@media print{
+  @page{size:A4;margin:16mm 14mm;}
+  body{background:#fff;}
+  .wrap{max-width:none;font-size:11pt;padding:0;}
+  .print-bar{display:none;}
+  .premium-detail{display:flex !important;}
+  .product-card,.section,.premium-section,.summary-section{break-inside:avoid;}
+  *{print-color-adjust:exact;-webkit-print-color-adjust:exact;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="doc-label">保障規劃建議書</div>
+        <div class="client-name">媽媽</div>
+      </div>
+      <div class="hdate">2026.10.27</div>
+    </div>
+    <div class="header-divider"></div>
+    <div style="margin-top:10px;display:flex;gap:16px;font-size:0.78em;color:var(--text-tertiary);letter-spacing:0.03em;">
+      <span>主被保險人／要保人：媽媽</span>
+      <span>65 歲女性 · 職類 1 類</span>
+      <span>保單幣別：新臺幣</span>
+    </div>
+  </div>
+
+  <!-- 保費區 -->
+  <div class="premium-section">
+    <div class="premium-header">
+      <div class="premium-title">年繳保費（點擊展開理賠內容）</div>
+      <div class="premium-total-inline">
+        <span class="premium-total-label">年繳合計</span>
+        <span class="premium-total-amt">NT$ 51,567</span>
+      </div>
+    </div>
+
+    <!-- 壽險（主約） -->
+    <div class="pgroup pg-blue">
+      <span class="pgroup-label">壽險（主約）</span>
+      <details class="premium-item">
+        <summary>
+          <span class="premium-name">XWS5 新平準終身壽險<span class="premium-tag">20年</span></span>
+          <span class="premium-amt">NT$ 11,470</span>
+          <span class="chev"><i class="ti ti-chevron-down"></i></span>
+        </summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">保額</span><span class="d-val">10 萬元（身故／喪葬 / 完全失能 / 祝壽）</span></div>
+          <div class="d-row"><span class="d-label">老年住院提前給付</span><span class="d-val"><span class="hl-y">300 元／日</span>（69 歲起住院）</span></div>
+          <div class="d-row"><span class="d-label">二至六級失能</span><span class="d-val">豁免本約續期保費</span></div>
+          <div class="d-row"><span class="d-label">繳費期間</span><span class="d-val">20 年（繳至 85 歲）</span></div>
+        </div>
+      </details>
+    </div>
+
+    <!-- 意外 -->
+    <div class="pgroup pg-green">
+      <span class="pgroup-label">意外</span>
+      <details class="premium-item">
+        <summary>
+          <span class="premium-name">ADG 享安寶意外傷害暨兒童傷害失能<span class="premium-tag">附約 · 身故／失能</span></span>
+          <span class="premium-amt">NT$ 980</span>
+          <span class="chev"><i class="ti ti-chevron-down"></i></span>
+        </summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">意外身故</span><span class="d-val">一般 100 萬／大眾運輸 200 萬／公共建築、電梯、CO 中毒 100 萬</span></div>
+          <div class="d-row"><span class="d-label">意外失能</span><span class="d-val"><span class="hl-y">100 萬</span> × 失能比例（大眾運輸 200 萬）</span></div>
+          <div class="d-row"><span class="d-label">重大燒燙傷</span><span class="d-val"><span class="hl-y">400,000 或 100,000 元</span></span></div>
+        </div>
+      </details>
+      <details class="premium-item">
+        <summary>
+          <span class="premium-name">ADH 骨力勇意外骨折傷害<span class="premium-tag">附約 · 骨折</span></span>
+          <span class="premium-amt">NT$ 6,050</span>
+          <span class="chev"><i class="ti ti-chevron-down"></i></span>
+        </summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">意外骨折</span><span class="d-val"><span class="hl-y">50 萬</span> × 完全骨折給付比例</span></div>
+          <div class="d-row"><span class="d-label">意外骨折關懷</span><span class="d-val">10,000 × 完全骨折比例</span></div>
+          <div class="d-row"><span class="d-label">脫臼開放性復位</span><span class="d-val">50 萬 × 脫臼別表比例</span></div>
+          <div class="d-row"><span class="d-label">創傷縫合處置</span><span class="d-val">500 元 × 給付比例</span></div>
+          <div class="d-row"><span class="d-label">重大燒燙傷</span><span class="d-val">125,000 元</span></div>
+          <div class="d-row"><span class="d-label">意外失能</span><span class="d-val">一般 50 萬／大眾運輸 100 萬 × 比例</span></div>
+        </div>
+      </details>
+      <details class="premium-item">
+        <summary>
+          <span class="premium-name">TMR 享安寶意外傷害醫療<span class="premium-tag">附加條款 · 實支</span></span>
+          <span class="premium-amt">NT$ 1,110</span>
+          <span class="chev"><i class="ti ti-chevron-down"></i></span>
+        </summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">意外醫療費用</span><span class="d-val"><span class="hl-y">實支上限 50,000 元／次</span>（加護／燒燙傷中心提高 1.5 倍 = 75,000）</span></div>
+          <div class="d-row"><span class="d-label">脫臼開放復位</span><span class="d-val">髖 45,000 / 肩膝踝 30,000 / 肘腕其他 15,000</span></div>
+          <div class="d-row"><span class="d-label">健保身分外</span><span class="d-val">按實支 75% 給付</span></div>
+        </div>
+      </details>
+    </div>
+
+    <!-- 住院醫療 -->
+    <div class="pgroup pg-pink">
+      <span class="pgroup-label">住院醫療</span>
+      <details class="premium-item">
+        <summary>
+          <span class="premium-name">HSV1 佳實在一年期住院醫療<span class="premium-tag">附約 · 實支</span></span>
+          <span class="premium-amt">NT$ 16,340</span>
+          <span class="chev"><i class="ti ti-chevron-down"></i></span>
+        </summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">每日病房費</span><span class="d-val">實支 <span class="hl-y">1,000 元／日</span>（加護／燒燙傷中心 2,000）</span></div>
+          <div class="d-row"><span class="d-label">住院醫療雜費</span><span class="d-val">實支上限 100,000 元／次（每次總限額 150,000）</span></div>
+          <div class="d-row"><span class="d-label">住院手術</span><span class="d-val">實支上限 40,000 元／次 × 手術比率</span></div>
+          <div class="d-row"><span class="d-label">門診手術</span><span class="d-val">實支上限 15,000 元／次（最高 6 次）</span></div>
+          <div class="d-row"><span class="d-label">特定處置</span><span class="d-val">實支上限 7,500 元／次（最高 6 次）</span></div>
+          <div class="d-row"><span class="d-label">住院日額（擇一）</span><span class="d-val">日額 1,000 元／日（加護 2,000）</span></div>
+          <div class="d-row"><span class="d-label">器官移植一次金</span><span class="d-val">心肝肺 400,000 ／ 胰腎造血 200,000</span></div>
+          <div class="d-row"><span class="d-label">每年限額</span><span class="d-val">750,000 元</span></div>
+        </div>
+      </details>
+      <details class="premium-item">
+        <summary>
+          <span class="premium-name">HSY1 全鑫一年期住院醫療<span class="premium-tag">附約 · 實支</span></span>
+          <span class="premium-amt">NT$ 15,617</span>
+          <span class="chev"><i class="ti ti-chevron-down"></i></span>
+        </summary>
+        <div class="premium-detail">
+          <div class="d-row"><span class="d-label">每日病房費</span><span class="d-val">實支，自負額 1,000 元，上限 <span class="hl-y">3,000 元／日</span></span></div>
+          <div class="d-row"><span class="d-label">住院醫療暨手術費</span><span class="d-val">自負額 100,000 元，上限 <span class="hl-y">300,000 元／次</span></span></div>
+          <div class="d-row"><span class="d-label">門診手術</span><span class="d-val">自負額 15,000 元，上限 25,000 元／次（最高 6 次）</span></div>
+          <div class="d-row"><span class="d-label">特定處置</span><span class="d-val">自負額 7,500 元，上限 12,500 元／次（最高 6 次）</span></div>
+          <div class="d-row"><span class="d-label">每年限額</span><span class="d-val">750,000 元</span></div>
+        </div>
+      </details>
+    </div>
+
+    <!-- 繳別一覽 -->
+    <div style="margin-top:14px;padding:12px 16px;background:var(--bg-cream);border:1px solid var(--border-tertiary);border-radius:var(--radius-md);">
+      <div style="font-size:0.78em;color:var(--text-secondary);margin-bottom:6px;letter-spacing:0.03em;">其他繳別</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;font-size:0.78em;">
+        <div><span style="color:var(--text-tertiary);">年繳</span>　<span style="font-weight:600;color:var(--text-primary);">NT$ 51,567</span></div>
+        <div><span style="color:var(--text-tertiary);">半年繳</span>　<span style="font-weight:600;color:var(--text-primary);">NT$ 26,815</span></div>
+        <div><span style="color:var(--text-tertiary);">季繳</span>　<span style="font-weight:600;color:var(--text-primary);">NT$ 13,511</span></div>
+        <div><span style="color:var(--text-tertiary);">月繳(2個月)</span>　<span style="font-weight:600;color:var(--text-primary);">NT$ 9,074</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 保障明細（Lily 編排：醫療中／意外／壽險 三區）-->
+  <!-- 醫療中 -->
+  <div class="section sec-mid">
+    <div class="section-header">
+      <div class="node"><i class="ti ti-stethoscope"></i></div>
+      <span class="phase-tag">醫療中</span>
+      <span class="phase-title">雙實支疊加，以 HSY1 上限為保障額度，自費醫材超額全額補足</span>
+    </div>
+    <div class="branch-wrap">
+      <div class="branch-card">
+        <div class="product-card">
+          <div class="product-top">
+            <div class="product-name" style="line-height:1.6;">HSV1 佳實在一年期住院醫療附約<br><span style="font-weight:400;color:var(--text-secondary);">＋</span><br>HSY1 全鑫一年期住院醫療附約</div>
+            <div class="product-badge">雙實支</div>
+          </div>
+          <div class="product-headline">雙實支疊加給付，以 HSY1 上限為保障額度，含門診手術與特定處置</div>
+          <div class="benefits">
+            <div class="benefit-row"><span class="benefit-label"><span class="hl-y">每日病房費</span></span><span class="benefit-val">實支 <span class="hl">3,000 元／日</span>（加護／燒燙傷中心 2,000）</span></div>
+            <div class="benefit-row"><span class="benefit-label"><span class="hl-y">雜費手術費</span></span><span class="benefit-val">實支上限 <span class="hl">300,000 元／次</span>（HSV1 150,000 + HSY1 疊加）</span></div>
+            <div class="benefit-row"><span class="benefit-label">門診手術</span><span class="benefit-val">實支上限 <span class="hl">25,000 元／次</span>（最高 6 次）</span></div>
+            <div class="benefit-row"><span class="benefit-label">特定處置</span><span class="benefit-val">實支上限 <span class="hl">12,500 元／次</span>（最高 6 次）</span></div>
+            <div class="benefit-row"><span class="benefit-label">住院日額擇一</span><span class="benefit-val">HSV1 日額 <span class="hl">1,000 元／日</span>（加護 2,000）</span></div>
+            <div class="benefit-row"><span class="benefit-label">器官移植一次金</span><span class="benefit-val">心肝肺 <span class="hl">400,000</span> ／ 胰腎造血 <span class="hl">200,000</span></span></div>
+            <div class="benefit-row"><span class="benefit-label">每年限額</span><span class="benefit-val">各 <span class="hl">750,000 元</span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 意外險 -->
+  <div class="section sec-acc">
+    <div class="section-header">
+      <div class="node"><i class="ti ti-bolt"></i></div>
+      <span class="phase-tag">意外險</span>
+      <span class="phase-title">突發事故，身故／失能、骨折、醫療實支三層保障（含高齡骨折強化）</span>
+    </div>
+    <div class="branch-wrap">
+      <div class="branch-card">
+        <div class="product-card">
+          <div class="product-top">
+            <div class="product-name">ADG 享安寶意外傷害暨兒童傷害失能附約</div>
+            <div class="product-badge">意外身故／失能</div>
+          </div>
+          <div class="product-headline">意外身故失能保障，搭乘大眾運輸加倍，另含重大燒燙傷</div>
+          <div class="benefits">
+            <div class="benefit-row"><span class="benefit-label">意外身故</span><span class="benefit-val">一般 <span class="hl">100 萬</span>（大眾運輸 <span class="hl">200 萬</span>）</span></div>
+            <div class="benefit-row"><span class="benefit-label"><span class="hl-y">意外失能</span></span><span class="benefit-val"><span class="hl">100 萬</span> × 失能給付比例</span></div>
+            <div class="benefit-row"><span class="benefit-label"><span class="hl-y">重大燒燙傷</span></span><span class="benefit-val"><span class="hl">400,000 或 100,000 元</span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="branch-card">
+        <div class="product-card">
+          <div class="product-top">
+            <div class="product-name">ADH 骨力勇意外骨折傷害附約</div>
+            <div class="product-badge">意外骨折</div>
+          </div>
+          <div class="product-headline">高齡強化骨折保障，含骨折金、關懷金、脫臼復位及重大燒燙傷</div>
+          <div class="benefits">
+            <div class="benefit-row"><span class="benefit-label"><span class="hl-y">意外骨折</span></span><span class="benefit-val"><span class="hl">50 萬</span> × 完全骨折給付比例</span></div>
+            <div class="benefit-row"><span class="benefit-label">骨折關懷金</span><span class="benefit-val">10,000 × 完全骨折比例（每事故 1 次）</span></div>
+            <div class="benefit-row"><span class="benefit-label">脫臼復位</span><span class="benefit-val">50 萬 × 脫臼別表比例</span></div>
+            <div class="benefit-row"><span class="benefit-label">創傷縫合處置</span><span class="benefit-val">500 元 × 比例</span></div>
+            <div class="benefit-row"><span class="benefit-label">重大燒燙傷</span><span class="benefit-val">125,000 元</span></div>
+            <div class="benefit-row"><span class="benefit-label">意外失能</span><span class="benefit-val">一般 50 萬 ／ 大眾運輸 100 萬 × 比例</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="branch-card">
+        <div class="product-card">
+          <div class="product-top">
+            <div class="product-name">TMR 享安寶意外傷害醫療附加條款</div>
+            <div class="product-badge">意外實支</div>
+          </div>
+          <div class="product-headline">意外就醫實支實付，加護／燒燙傷中心提高 1.5 倍</div>
+          <div class="benefits">
+            <div class="benefit-row"><span class="benefit-label"><span class="hl-y">意外醫療費用</span></span><span class="benefit-val">實支上限 <span class="hl">50,000 元／次</span>（加護中心 <span class="hl">75,000</span>）</span></div>
+            <div class="benefit-row"><span class="benefit-label">脫臼復位術</span><span class="benefit-val">髖 45,000 / 肩膝踝 30,000 / 肘腕其他 15,000</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 壽險（身故理賠） -->
+  <div class="section sec-life">
+    <div class="section-header">
+      <div class="node"><i class="ti ti-heart"></i></div>
+      <span class="phase-tag">壽險（身故理賠）</span>
+      <span class="phase-title">守護家人、含老年住院提前給付與失能豁免</span>
+    </div>
+    <div class="branch-wrap">
+      <div class="branch-card">
+        <div class="product-card">
+          <div class="product-top">
+            <div class="product-name">XWS5 新平準終身壽險</div>
+            <div class="product-badge">終身壽險</div>
+          </div>
+          <div class="product-headline">10 萬元終身壽險，69 歲起住院每日提前給付、二至六級失能豁免續期保費</div>
+          <div class="benefits">
+            <div class="benefit-row"><span class="benefit-label">保額</span><span class="benefit-val"><span class="hl">10 萬元</span>（身故／喪葬／完全失能／祝壽）</span></div>
+            <div class="benefit-row"><span class="benefit-label">老年住院提前給付</span><span class="benefit-val"><span class="hl-y">300 元／日</span>（69 歲起住院）</span></div>
+            <div class="benefit-row"><span class="benefit-label">二至六級失能</span><span class="benefit-val">豁免本約續期保費</span></div>
+            <div class="benefit-row"><span class="benefit-label">繳費期間</span><span class="benefit-val">20 年（繳至 85 歲）</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 保障簡易說明 -->
+  <div class="summary-section">
+    <div class="summary-title"><i class="ti ti-shield-check"></i> 簡易保障說明</div>
+    <div class="summary-list">
+      <div class="summary-item"><span class="summary-dot ld-pink"></span><span class="summary-text">住院每日病房費（HSV1+HSY1）</span><span class="summary-amt">3,000 / 日</span></div>
+      <div class="summary-item"><span class="summary-dot ld-pink"></span><span class="summary-text">住院自費額度（HSV1+HSY1）</span><span class="summary-amt">30 萬 / 次</span></div>
+      <div class="summary-item"><span class="summary-dot ld-green"></span><span class="summary-text">意外失能最高（ADG + ADH 合計）</span><span class="summary-amt">150 萬</span></div>
+      <div class="summary-item"><span class="summary-dot ld-green"></span><span class="summary-text">意外骨折最高（ADH 強化）</span><span class="summary-amt">50 萬 × 比例</span></div>
+      <div class="summary-item"><span class="summary-dot ld-green"></span><span class="summary-text">意外醫療實支（TMR）</span><span class="summary-amt">5 萬 / 次</span></div>
+      <div class="summary-item"><span class="summary-dot ld-blue"></span><span class="summary-text">身故／喪葬／完全失能（XWS5）</span><span class="summary-amt">10 萬</span></div>
+      <div class="summary-item"><span class="summary-dot ld-blue"></span><span class="summary-text">老年住院提前給付（XWS5，69 歲起）</span><span class="summary-amt">300 / 日</span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">※ 本建議書資料依富邦人壽試算日 2026/10/27（民國 115 年 10 月 27 日）V115.10.23 版本整理；詳細商品內容及理賠條款以保單條款與公司核保規定為準。</div>
+    <div class="footer-note">※ ADG／ADH／TMR／HSV1／HSY1 均為一年期商品，續保時按生效當時費率及被保險人年齡重新計算。HSV1／HSY1 保證續保至 80 歲。</div>
+    <div class="footer-note">※ XWS5 於訂立契約前享不低於三日之審閱期。XWS5 繳費期 20 年（65–84 歲），85 歲後停繳。</div>
+  </div>
+
+  <!-- 20 年保費試算 -->
+  <div class="cost-section">
+    <div class="cost-header">
+      <div class="cost-title"><i class="ti ti-calculator"></i> 往後 20 年保費試算</div>
+      <div class="cost-subtitle">65–84 歲，1 類職業女性；XWS5 繳費期 20 年（繳至 85 歲）；ADG／TMR 固定費率；ADH 76 歲以後費率表未附；HSV1／HSY1 保證續保至 80 歲，81 歲以後無法續保</div>
+    </div>
+    <div class="cost-table-wrap">
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>年齡</th><th class="col-total">年繳合計</th><th>XWS5</th><th>ADG</th><th>ADH</th><th>TMR</th><th>HSV1</th><th>HSY1</th>
+          </tr>
+        </thead>
+        <tbody>
+<tr><td>65</td><td class="col-total">51,567</td><td>11,470</td><td>980</td><td>6,050</td><td>1,110</td><td>16,340</td><td>15,617</td></tr>
+<tr><td>66</td><td class="col-total">51,567</td><td>11,470</td><td>980</td><td>6,050</td><td>1,110</td><td>16,340</td><td>15,617</td></tr>
+<tr><td>67</td><td class="col-total">51,567</td><td>11,470</td><td>980</td><td>6,050</td><td>1,110</td><td>16,340</td><td>15,617</td></tr>
+<tr><td>68</td><td class="col-total">51,567</td><td>11,470</td><td>980</td><td>6,050</td><td>1,110</td><td>16,340</td><td>15,617</td></tr>
+<tr><td>69</td><td class="col-total">51,567</td><td>11,470</td><td>980</td><td>6,050</td><td>1,110</td><td>16,340</td><td>15,617</td></tr>
+<tr class="age-milestone"><td>70</td><td class="col-total">62,032</td><td>11,470</td><td>980</td><td>6,050</td><td>1,110</td><td>21,920</td><td>20,502</td></tr>
+<tr><td>71</td><td class="col-total">62,032</td><td>11,470</td><td>980</td><td>6,050</td><td>1,110</td><td>21,920</td><td>20,502</td></tr>
+<tr><td>72</td><td class="col-total">62,032</td><td>11,470</td><td>980</td><td>6,050</td><td>1,110</td><td>21,920</td><td>20,502</td></tr>
+<tr><td>73</td><td class="col-total">62,032</td><td>11,470</td><td>980</td><td>6,050</td><td>1,110</td><td>21,920</td><td>20,502</td></tr>
+<tr><td>74</td><td class="col-total">62,032</td><td>11,470</td><td>980</td><td>6,050</td><td>1,110</td><td>21,920</td><td>20,502</td></tr>
+<tr class="age-milestone"><td>75</td><td class="col-total">73,946</td><td>11,470</td><td>980</td><td>6,050</td><td>1,110</td><td>27,910</td><td>26,426</td></tr>
+<tr><td>76</td><td class="col-total">67,896</td><td>11,470</td><td>980</td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td><td>1,110</td><td>27,910</td><td>26,426</td></tr>
+<tr><td>77</td><td class="col-total">67,896</td><td>11,470</td><td>980</td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td><td>1,110</td><td>27,910</td><td>26,426</td></tr>
+<tr><td>78</td><td class="col-total">67,896</td><td>11,470</td><td>980</td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td><td>1,110</td><td>27,910</td><td>26,426</td></tr>
+<tr><td>79</td><td class="col-total">67,896</td><td>11,470</td><td>980</td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td><td>1,110</td><td>27,910</td><td>26,426</td></tr>
+<tr class="age-milestone"><td>80</td><td class="col-total">67,896</td><td>11,470</td><td>980</td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td><td>1,110</td><td>27,910</td><td>26,426</td></tr>
+<tr><td>81</td><td class="col-total">13,560</td><td>11,470</td><td>980</td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td><td>1,110</td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td></tr>
+<tr><td>82</td><td class="col-total">13,560</td><td>11,470</td><td>980</td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td><td>1,110</td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td></tr>
+<tr><td>83</td><td class="col-total">13,560</td><td>11,470</td><td>980</td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td><td>1,110</td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td></tr>
+<tr><td>84</td><td class="col-total">13,560</td><td>11,470</td><td>980</td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td><td>1,110</td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td><td><span style="color:#b78a2a;font-size:0.9em;">—</span></td></tr>
+        </tbody>
+        <tfoot>
+          <tr style="background:#ddd8c9;border-top:2px solid #c8c0ad;font-weight:600;">
+            <td colspan="2" style="text-align:left;padding-left:12px;color:var(--text-primary);">20 年總計（已知費率部分）</td>
+            <td colspan="6" style="text-align:right;padding-right:12px;color:#2a6496;font-size:1.05em;">NT$ 1,035,661</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="cost-note">※ ADH 76 歲以後、HSV1／HSY1 81 歲以後因費率表未附或非保證續保而以「—」呈現；屆時實際保費以該年度公告費率為準。</div>
+    <div class="cost-note">※ 65–69 歲年繳 51,567；70–74 歲 62,032；75 歲 73,946；76–80 歲（扣除 ADH）67,896；81–84 歲（僅 XWS5／ADG／TMR）13,560。本試算不含未來費率調整。</div>
+  </div>
+
+
+</div>
+</body>
+</html>
